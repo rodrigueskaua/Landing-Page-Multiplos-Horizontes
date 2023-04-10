@@ -9,6 +9,8 @@ $('.navbar-nav a[href^="#"]').on('click', function(e) {
   }, 150);
 })
 
+window.scrollTo( 0, 1 );
+
 const slideButtons = document.querySelectorAll(".nav-btn")
 const videos = document.querySelectorAll(".video-slide")
 const containers = document.querySelectorAll(".container-fluid")
