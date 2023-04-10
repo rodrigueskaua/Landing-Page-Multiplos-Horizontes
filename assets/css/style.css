@@ -3,12 +3,12 @@
 
 /*--| variables setup |--*/
 :root {
-  --primary: #F22E52;
+  --primary: #F2622E;
   --primary-dark: #012E40;
   --black: #0e0d0d;
   --gray-1: #788190;
-  --gray-2: #d3d4db;
-  --green: ##03A688;
+  --gray-2: #e3e5ee;
+  --green: #F22E52;
   --light: #F2DCC9;
   --white: #f5f5f5;
   --btn-transition: .15s;
@@ -37,6 +37,11 @@ body::-webkit-scrollbar-thumb {
 html {
   scroll-behavior: smooth;
 }
+
+/* Sections */
+section{
+  padding: 0px 50px;
+}
 /* buttons */
 
 .btn {
@@ -59,8 +64,8 @@ html {
 }
 
 .btn-outline-secondary{ 
-  background-color: var(--purple)!important;
-  color: var(--white);
+  background-color: var(--white)!important;
+  color: var(--black);
   border: none;
 
 }
@@ -71,7 +76,7 @@ html {
 }
 
 .btn-outline-secondary:hover{ 
-  background-color: var(--purple-dark)!important;
+  background-color: var(--primary-dark)!important;
   transition: var(--btn-transition);
   transform: scale(var(--btn-scale));
 
@@ -95,7 +100,7 @@ html {
   position: relative;
   margin-left: 41px;
   font-size: 16px;
-  color: var(--gray-1);
+  color: var(--white);
   font-weight: 500;
   transition: var(--link-transition);
 }
@@ -103,7 +108,7 @@ html {
 .navbar-collapse .nav-link:before {
   content: '';
   position: absolute;
-  background-color: var(--primary-dark);
+  background-color: var(--light);
   width: 0%;
   height: 3px;
   bottom: 0;
@@ -117,16 +122,165 @@ html {
 
 .navbar-collapse .nav-link:hover {
   transition: var(--btn-transition) ;
-  color: var(--black);
+  color: var(--gray-2);
 }
 
 .navbar-nav .nav-link.active {
-  font-weight: bold;
-  color: var();
+  font-weight: 600;
+  color: var(--light);
 }
 
+/*--| Inicio section |--*/
+.inicio{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #012e40;
+}
+
+.inicio:before{
+  z-index: 777;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(3, 251, 210, 0.3);
+
+}
+
+.inicio .container-fluid.active{
+  display: block;
+}
+
+.inicio .container-fluid{
+  z-index: 888;
+  color: var(--white);
+  width: 70%;
+  margin-top: 50px;
+  display: none;
+}
+
+.inicio .container-fluid h1{
+  font-size: 4em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  line-height: 75px;
+  margin-bottom: 40px;
+}
+
+.inicio .container-fluid h1 span{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.inicio .container-fluid p{
+  margin-bottom: 65px;
+}
+
+.inicio .container-fluid a{
+  background-color: var(--white);
+}
+
+
+.inicio .media-icons{
+  z-index: 888;
+  position: absolute;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+}
+
+.inicio .media-icons a{
+  color: #fff;
+  font-size: 1.6em;
+  transition: var(--link-transition);
+}
+
+.inicio .media-icons a:not(:last-child){
+  margin-bottom: 15px;
+}
+
+.inicio .media-icons a:hover{
+  transform: scale(1.2);
+}
+
+.inicio video{
+  z-index: 000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-navigation{
+  z-index: 888;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(80px);
+  margin-bottom: 12px;
+}
+
+.slider-navigation .nav-btn{
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  transition: var(--link-transition);
+}
+
+.slider-navigation .nav-btn.active{
+  background-color: var(--primary-dark);
+}
+
+.slider-navigation .nav-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.slider-navigation .nav-btn:hover{
+  transform: scale(1.5);
+}
+
+.video-slide{
+  position: absolute;
+  width: 100%;
+  clip-path: circle(0% at 0 50%);
+}
+
+.video-slide.active{
+  clip-path: circle(150% at 0 50%);
+  transition: 1.5s ease;
+  transition-property: clip-path;
+}
+
+
+
 /*--| Responsive section |--*/
-@media (max-width: 991px){
+@media (max-width: 1040px){
+  /*--| Navbar |--*/
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  section{
+    padding: 0px 20px;
+  }
+
+ }
+
+ @media (max-width: 991px){
   /*--| Navbar |--*/
    .navbar-nav{
       margin-top: 20px;
@@ -141,6 +295,11 @@ html {
       font-size: 17px;
  
    }
+
+   .inicio .media-icons{
+      right: 15px;
+
+  }
  
  }
 
