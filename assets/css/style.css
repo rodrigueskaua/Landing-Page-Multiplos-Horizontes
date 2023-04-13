@@ -137,22 +137,15 @@ section{
   color: var(--light);
 }
 
-.inicio .container-fluid h1{
-  font-size: 4em;
+.sliderItems h1{
+  font-size: 2.5em;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 6px;
-  line-height: 75px;
-  margin-bottom: 40px;
 }
 
-.inicio .container-fluid h1 span{
-  font-size: 1.2em;
-  font-weight: 600;
-}
-
-.inicio .container-fluid p{
-  margin-bottom: 65px;
+.sliderItems p{
+  margin-top: 65px;
 }
 
 .inicio .container-fluid a{
@@ -163,13 +156,19 @@ video{
   min-width: 100%; 
   min-height: 100%
 }
-
+.sliderItems{
+  width: 75%;
+}
 .mask-1{
   background: rgba(3, 222, 251, 0.226);
+  background: rgba(0, 0, 0, 0.418);
+
 }
 
 .mask-2{
   background: rgba(7, 90, 138, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+
 }
 
 .mask-3{
@@ -178,6 +177,18 @@ video{
 
 .mask-4{
   background: rgba(251, 172, 3, 0.199);
+  background: rgba(0, 0, 0, 0.3);
+
+}
+
+/* Control icons */
+.carousel-control-next, .carousel-control-prev {
+  width: 7%;
+}
+
+
+.carousel-control-next-icon::after, .carousel-control-prev-icon::after {
+  font-size: 30px;
 }
 
  /* Carousel styling */
