@@ -33,7 +33,7 @@ body {
 ::-webkit-scrollbar-button {
 }
 ::-webkit-scrollbar-thumb {
-  background: #060d5f54;
+  background: #060d5f17;
   border-radius: 5px;
 }
 
@@ -154,49 +154,61 @@ section{
 
 video{
   min-width: 100%; 
-  min-height: 100%
+  min-height: 100%;
 }
 .sliderItems{
   width: 75%;
 }
+
+.mask{
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 .mask-1{
   background: rgba(3, 222, 251, 0.226);
-  background: rgba(0, 0, 0, 0.418);
+  background: rgba(5, 1, 56, 0.3);
+
 
 }
 
 .mask-2{
-  background: rgba(7, 90, 138, 0.3);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(13, 1, 56, 0.3);
 
 }
 
 .mask-3{
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(47, 1, 56, 0.3);
 }
 
 .mask-4{
-  background: rgba(251, 172, 3, 0.199);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(48, 56, 1, 0.3);
 
 }
 
 /* Control icons */
-.carousel-control-next, .carousel-control-prev {
-  width: 7%;
+.carousel-control-prev, .carousel-control-next {
+  display: none;
 }
 
-
-.carousel-control-next-icon::after, .carousel-control-prev-icon::after {
-  font-size: 30px;
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  display: block;
 }
 
- /* Carousel styling */
- #introCarousel,
- .carousel-inner,
- .carousel-item,
- .carousel-item.active {
-   height: 100vh;
+#carouselExampleCaptions,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  overflow: hidden;
+}
+
+ .carousel-item {
+  position: relative;
  }
 
  .carousel-item:nth-child(1) {

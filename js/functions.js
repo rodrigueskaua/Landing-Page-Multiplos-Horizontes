@@ -9,32 +9,37 @@ $('.navbar-nav a[href^="#"]').on('click', function(e) {
   }, 150);
 })
 
-window.scrollTo( 0, 1 );
 
-const slideButtons = document.querySelectorAll(".nav-btn")
-const videos = document.querySelectorAll(".video-slide")
-const containers = document.querySelectorAll(".container-fluid")
+$(document).ready(function() {
+  const carouselVideos = document.querySelectorAll('#carouselExampleCaptions video');
 
-slider = function(manual){
-  slideButtons.forEach((button) => {
-    button.classList.remove("active")
-  })
+  // Função para carregar os vídeos sequencialmente
+  function loadVideosSequentially() {
+    let index = 0;
+    const totalVideos = carouselVideos.length;
 
-  videos.forEach((video) => {
-    video.classList.remove("active")
-  })
+    function loadNextVideo() {
+      if (index < totalVideos) {
+        const video = carouselVideos[index];
+        video.addEventListener('loadeddata', loadNextVideo);
+        video.load();
+        index++;
+      }
+    }
 
-  containers.forEach((container) => {
-    container.classList.remove("active")
-  })
+    loadNextVideo();
+  }
 
-  slideButtons[manual].classList.add("active"); 
-  videos[manual].classList.add("active"); 
-  containers[manual].classList.add("active"); 
+  // Função para iniciar o pré-carregamento dos vídeos
+  function preloadVideos() {
+    carouselVideos.forEach(video => {
+      video.load();
+    });
+  }
 
-}
-slideButtons.forEach((button, i) => {
-  button.addEventListener("click", () => {
-    slider(i);
-  })
-})
+  // Evento de pré-carregamento quando a página for carregada
+  window.addEventListener('load', preloadVideos);
+
+  // Evento para carregar os vídeos sequencialmente após o pré-carregamento
+  window.addEventListener('load', loadVideosSequentially);
+});
